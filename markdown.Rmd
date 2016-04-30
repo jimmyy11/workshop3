@@ -1,0 +1,21 @@
+---
+title: "Workshop3"
+author: "James Yonts"
+date: "April 29, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+My approach to this problem was to first go back to the SOP and ensure I understood the general process and then go through the procedure step by step to reclassify the sequences. The logs for this (which include some troubleshooting) are on the github repository "workshop3inilog". I chose to use the silva databases again, since the description of greengenes on mothur seemed to advise against using it. 
+
+Once I had gone through the process once and got the classifications, I decided to try implementing the batch process as well to see if I could get that to work. I ran into a small issue (using "mv" on Windows..), but once that - and some uchime crashes - was resolved I ended up with the classifications once more. This batch file is also on the github "stability.batch". The text from this file is also located below as requested.
+
+The two files containing the open-reference method and the closed/taxonomic method of classification are located on github as well and the file names are "stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.an.unique_list.0.03.cons" and "stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.tx.1.cons" respectively. As would likely be expected, we see much more clustering in the closed reference taxonomic clustering method - outputing only 64 clusters compared to greater than 400 for the open-reference method. 
+
+
+BATCH TEXT:
+```{r batch}
+cat( readLines( "stability.batch" ) , sep = "\n")
+```
